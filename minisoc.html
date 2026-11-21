@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-SOC | Portfolio </title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .minisoc-page {
+            background: #fdf8f5;
+            color: #18243b;
+            min-height: 100vh;
+        }
+
+        .minisoc-hero {
+            padding: 100px 8% 70px;
+            background: linear-gradient(135deg, #101b33, #243654);
+            color: #fff;
+            text-align: center;
+        }
+
+        .minisoc-hero .tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #d6b56d;
+            border-radius: 30px;
+            color: #d6b56d;
+            margin-bottom: 20px;
+        }
+
+        .minisoc-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .minisoc-hero h1 span {
+            color: #d6b56d;
+        }
+
+        .minisoc-hero p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+            color: #e5e7eb;
+        }
+
+        .minisoc-container {
+            width: 84%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        .minisoc-section {
+            margin-bottom: 65px;
+        }
+
+        .minisoc-section h2 {
+            font-size: 2rem;
+            color: #18243b;
+            margin-bottom: 25px;
+            border-left: 5px solid #d6b56d;
+            padding-left: 15px;
+        }
+
+        .minisoc-section p {
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .minisoc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .minisoc-card {
+            background: white;
+            border-radius: 15px;
+            padding: 28px;
+            box-shadow: 0 5px 20px rgba(24, 36, 59, 0.08);
+            border: 1px solid #f0e5df;
+        }
+
+        .minisoc-card h3 {
+            color: #b18b42;
+            margin-bottom: 15px;
+        }
+
+        .minisoc-card p,
+        .minisoc-card li {
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        .minisoc-card ul {
+            padding-left: 20px;
+        }
+
+        .minisoc-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .minisoc-tech span {
+            background: #18243b;
+            color: #d6b56d;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .minisoc-test {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #d6b56d;
+            box-shadow: 0 5px 20px rgba(24, 36, 59, 0.06);
+        }
+
+        .minisoc-test h3 {
+            color: #18243b;
+            margin-bottom: 12px;
+        }
+
+        .minisoc-test p {
+            margin-bottom: 10px;
+        }
+
+        .test-status {
+            color: #287a55;
+            font-weight: bold;
+        }
+
+        .minisoc-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .minisoc-gallery figure {
+            margin: 0;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(24, 36, 59, 0.08);
+        }
+
+        .minisoc-gallery img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .minisoc-gallery figcaption {
+            padding: 15px 5px 5px;
+            color: #4b5563;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .minisoc-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .minisoc-btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .minisoc-btn.primary {
+            background: #d6b56d;
+            color: #18243b;
+        }
+
+        .minisoc-btn.secondary {
+            border: 2px solid #d6b56d;
+            color: #d6b56d;
+        }
+
+        .minisoc-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .minisoc-footer {
+            background: #101b33;
+            text-align: center;
+            padding: 25px;
+            color: #e5e7eb;
+        }
+
+        .minisoc-footer a {
+            color: #d6b56d;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .minisoc-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .minisoc-grid,
+            .minisoc-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .minisoc-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body class="minisoc-page">
+
+    <header class="minisoc-hero">
+        <span class="tag">Projet personnel</span>
+
+        <h1>Mini-<span>SOC</span></h1>
+
+        <p>
+            Développement d'un outil de détection d'activités suspectes
+            à partir des journaux d'authentification SSH.
+            Ce projet vise à reproduire une première approche de surveillance
+            et d'analyse de sécurité inspirée du fonctionnement d'un SOC.
+        </p>
+
+        <div class="minisoc-actions">
+            <a href="#presentation" class="minisoc-btn primary">
+                Découvrir le projet
+            </a>
+
+            <a href="index.html#projets" class="minisoc-btn secondary">
+                Retour au portfolio
+            </a>
+        </div>
+    </header>
+
+    <main class="minisoc-container">
+
+        <section id="presentation" class="minisoc-section">
+            <h2>Présentation du projet</h2>
+
+            <p>
+                Le Mini-SOC est un projet personnel réalisé dans un environnement
+                Ubuntu Server. Il consiste à développer un script Python capable
+                d'analyser les logs SSH afin d'identifier les tentatives
+                de connexion échouées et de repérer les comportements suspects.
+            </p>
+
+            <p>
+                Le système comptabilise les tentatives par adresse IP,
+                compare les résultats à un seuil défini et génère des alertes
+                ainsi qu'un rapport statistique de sécurité.
+            </p>
+        </section>
+
+        <section class="minisoc-section">
+            <h2>Objectifs</h2>
+
+            <div class="minisoc-grid">
+                <article class="minisoc-card">
+                    <h3>Surveillance des logs</h3>
+                    <p>
+                        Analyser les journaux d'authentification SSH
+                        pour détecter les échecs de connexion.
+                    </p>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Détection d'activités suspectes</h3>
+                    <p>
+                        Identifier les adresses IP dépassant
+                        un seuil de tentatives échouées.
+                    </p>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Génération d'alertes</h3>
+                    <p>
+                        Enregistrer automatiquement les alertes
+                        dans un fichier dédié.
+                    </p>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Reporting de sécurité</h3>
+                    <p>
+                        Produire un rapport statistique regroupant
+                        les indicateurs clés de l'analyse.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="minisoc-section">
+            <h2>Technologies utilisées</h2>
+
+            <div class="minisoc-tech">
+                <span>Python 3</span>
+                <span>Ubuntu Server</span>
+                <span>Linux</span>
+                <span>SSH</span>
+                <span>Regex</span>
+                <span>Git</span>
+                <span>GitHub</span>
+            </div>
+        </section>
+
+        <section class="minisoc-section">
+            <h2>Fonctionnalités développées</h2>
+
+            <div class="minisoc-grid">
+                <article class="minisoc-card">
+                    <h3>Analyse des logs SSH</h3>
+                    <ul>
+                        <li>Lecture du fichier auth.log.</li>
+                        <li>Identification des échecs de connexion.</li>
+                        <li>Extraction des adresses IP avec expressions régulières.</li>
+                    </ul>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Détection et alertes</h3>
+                    <ul>
+                        <li>Comptage des tentatives échouées par IP.</li>
+                        <li>Définition d'un seuil de 5 tentatives.</li>
+                        <li>Génération d'alertes dans alerts.log.</li>
+                    </ul>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Statistiques SOC</h3>
+                    <ul>
+                        <li>Nombre total d'échecs SSH.</li>
+                        <li>Nombre d'adresses IP distinctes.</li>
+                        <li>Nombre d'IP en alerte.</li>
+                        <li>Adresse IP la plus active.</li>
+                    </ul>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Rapport automatique</h3>
+                    <ul>
+                        <li>Génération du rapport rapport_soc.txt.</li>
+                        <li>Enregistrement de la date d'analyse.</li>
+                        <li>Restitution des indicateurs de sécurité.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="minisoc-section">
+            <h2>Scénarios de tests</h2>
+
+            <div class="minisoc-test">
+                <h3>Scénario 1 — Connexion SSH normale</h3>
+                <p>
+                    Simulation d'une connexion SSH réussie sans échec
+                    d'authentification.
+                </p>
+                <p class="test-status">
+                    ✓ Résultat : aucune alerte générée.
+                </p>
+            </div>
+
+            <div class="minisoc-test">
+                <h3>Scénario 2 — Détection au seuil de 5 tentatives</h3>
+                <p>
+                    Simulation de cinq tentatives SSH échouées
+                    provenant de l'adresse IP 192.168.1.50.
+                </p>
+                <p class="test-status">
+                    ✓ Résultat : une alerte SSH générée.
+                </p>
+            </div>
+
+            <div class="minisoc-test">
+                <h3>Scénario 3 — Plusieurs adresses IP suspectes</h3>
+                <p>
+                    Simulation de tentatives échouées depuis trois adresses IP :
+                    deux dépassent le seuil de détection et une reste en dessous.
+                </p>
+                <p class="test-status">
+                    ✓ Résultat : deux alertes générées pour 12 échecs SSH.
+                </p>
+            </div>
+        </section>
+
+        <section class="minisoc-section">
+            <h2>Captures d'écran du projet</h2>
+
+            <p>
+                Les captures ci-dessous permettront de visualiser
+                les étapes de réalisation et les résultats obtenus.
+            </p>
+
+            <div class="minisoc-gallery">
+
+                <figure>
+                    <img src="images/projets/minisoc/06-test-connexion-normale.png"
+                         alt="Test d'une connexion SSH normale">
+                    <figcaption>Scénario 1 — Connexion normale</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/projets/minisoc/07-test du scénario2.png"
+                         alt="Détection de cinq tentatives SSH échouées">
+                    <figcaption>Scénario 2 — Détection d'une alerte</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/projets/minisoc/08- test du scénario3(1).png"
+                     
+                         alt="Détection de la première adresse IP suspecte">
+
+                    <img src="images/projets/minisoc/09- test du scénario3(2).png"
+                         alt="Détection de la deuxième adresse IP suspecte">
+                    <figcaption>Scénario 3 — Plusieurs IP suspectes</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+        <section class="minisoc-section">
+            <h2>Compétences mobilisées</h2>
+
+            <div class="minisoc-grid">
+                <article class="minisoc-card">
+                    <h3>Cybersécurité</h3>
+                    <p>
+                        Analyse de journaux, détection d'activités suspectes
+                        et surveillance des authentifications SSH.
+                    </p>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Scripting Python</h3>
+                    <p>
+                        Manipulation de fichiers, expressions régulières,
+                        comptage et génération de rapports.
+                    </p>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Administration Linux</h3>
+                    <p>
+                        Utilisation d'Ubuntu Server, gestion de logs
+                        et exécution de scripts dans un environnement Linux.
+                    </p>
+                </article>
+
+                <article class="minisoc-card">
+                    <h3>Tests et validation</h3>
+                    <p>
+                        Conception de scénarios de test et vérification
+                        des résultats attendus.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="minisoc-section">
+            <h2>Accéder au projet</h2>
+
+            <p>
+                Retrouvez le code source du Mini-SOC sur GitHub.
+            </p>
+
+            <div class="minisoc-actions">
+                <a href="https://github.com/LEOPOLDINE16/minisoc"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="minisoc-btn primary">
+                    Voir le projet sur GitHub
+                </a>
+
+                <a href="index.html#projets"
+                   class="minisoc-btn secondary">
+                    Retour aux projets
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="minisoc-footer">
+        <p>© 2026 — Portfolio </p>
+        <a href="index.html">Retour à l'accueil</a>
+    </footer>
+
+</body>
+</html>
